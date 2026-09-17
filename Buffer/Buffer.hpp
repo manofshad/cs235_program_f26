@@ -1,4 +1,5 @@
-// Buffer.hpp -- from Tuesday's lecture slip (unchanged)
+// Buffer.hpp -- from lecture slip on Sepetember 15, 2026
+// Declarations only -- see Buffer.cpp for implementations.
 #ifndef BUFFER_HPP
 #define BUFFER_HPP
 
@@ -6,23 +7,16 @@
 
 class Buffer {
 public:
-    explicit Buffer(std::size_t size)
-        : data_(new int[size]{}), size_(size) {}
+    explicit Buffer(std::size_t size);
+    ~Buffer();
 
-    ~Buffer() { delete[] data_; }
+    Buffer(const Buffer& other);
 
-    Buffer(const Buffer& other)
-        : data_(new int[other.size_]), size_(other.size_) {
-        for (std::size_t i = 0; i < size_; ++i) {
-            data_[i] = other.data_[i];
-        }
-    }
-
-    // NEW today -- buggy, see grow() below (implemented in Buffer.cpp)
+    // NEW today -- buggy, see grow() in Buffer.cpp
     void grow(std::size_t newSize);
 
-    int& at(std::size_t i) { return data_[i]; }
-    std::size_t size() const { return size_; }
+    int& at(std::size_t i);
+    std::size_t size() const;
 
 private:
     int* data_;
