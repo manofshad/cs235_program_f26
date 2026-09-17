@@ -1,6 +1,6 @@
 {
   "name": "C++ Course Environment",
-  "image": "://microsoft.com",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu24.04",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": false
